@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My GitHub App</title>
+</head>
+<body>
+    <h1>Data from Backend:</h1>
+    <div id="data-container">Loading...</div>
+
+    <script>
+        // We will replace this URL once the backend is live
+        const BACKEND_URL = "https://your-backend-url.onrender.com/api/data";
+
+        async function fetchData() {
+            try {
+                const response = await fetch(BACKEND_URL);
+                const data = await response.json();
+                document.getElementById('data-container').innerText = data.message;
+            } catch (error) {
+                document.getElementById('data-container').innerText = "Error connecting to backend.";
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>
